@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Text Selection Color - Bright Yellow Highlighter */
+::selection {
+  background-color: #fde047 !important; /* Tailwind yellow-300 - much more visible */
+  color: #000000 !important; /* Black text for contrast */
+}
+
+/* Firefox support */
+::-moz-selection {
+  background-color: #fde047 !important;
+  color: #000000 !important;
+}
