@@ -37,7 +37,7 @@ export function Footer() {
                 className="flex items-center space-x-2 text-sm text-slate-700 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                <span>hello@protechnology.ai</span>
+                <span>anmolmishra86229@gmail.com</span>
               </a>
               
               <div className="flex space-x-4 pt-2">
@@ -47,7 +47,7 @@ export function Footer() {
                 <a href="#" className="text-slate-400 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   <Twitter className="w-5 h-5" />
                 </a>
-                <a href="https://github.com/anmolmishra09" className="text-slate-400 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                <a href="https://github.com/anmolmishra09/protechno" className="text-slate-400 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
               </div>

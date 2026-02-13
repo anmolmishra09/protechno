@@ -3,50 +3,58 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { Mail, Lock, Eye, EyeOff, ArrowLeft, Loader2 } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, ArrowLeft, User, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 
-interface LoginPageProps {
+interface SignupPageProps {
   onBack: () => void;
-  onLoginSuccess: () => void;
-  onSignupClick: () => void;
+  onSignupSuccess: () => void;
 }
 
-export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPageProps) {
+export function SignupPage({ onBack, onSignupSuccess }: SignupPageProps) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match!");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long!");
+      return;
+    }
+
     setIsLoading(true);
 
     // Simulate API call
     setTimeout(() => {
-      if (email && password.length >= 6) {
-        onLoginSuccess();
-      } else {
-        setError("Invalid credentials. Please try again.");
-        setIsLoading(false);
-      }
+      onSignupSuccess();
     }, 1500);
   };
 
-  const handleSocialLogin = (provider: string) => {
+  const handleSocialSignup = (provider: string) => {
     setError("");
     setIsLoading(true);
 
     // Simulate OAuth redirect/callback delay
     setTimeout(() => {
-      onLoginSuccess();
+      onSignupSuccess();
     }, 1500);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-950 relative overflow-hidden px-4">
+    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-950 relative overflow-hidden px-4 py-8">
       {/* Background Decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-orange-100/50 dark:bg-orange-900/20 rounded-full blur-[120px] animate-pulse" />
@@ -64,7 +72,7 @@ export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPagePr
         Back
       </Button>
 
-      {/* Login Card */}
+      {/* Signup Card */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,14 +81,31 @@ export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPagePr
       >
         <Card className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800 shadow-xl">
           <CardHeader className="space-y-1 text-center">
-            <CardTitle className="text-3xl font-bold text-slate-900 dark:text-white">Welcome Back</CardTitle>
+            <CardTitle className="text-3xl font-bold text-slate-900 dark:text-white">Create Account</CardTitle>
             <CardDescription className="text-slate-600 dark:text-slate-400">
-              Enter your credentials to access your account
+              Enter your information to create your account
             </CardDescription>
           </CardHeader>
           
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-slate-700 dark:text-slate-300">Full Name</Label>
+                <div className="relative">
+                  <User className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="John Doe"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="pl-10 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white"
+                    required
+                    disabled={isLoading}
+                  />
+                </div>
+              </div>
+
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-slate-700 dark:text-slate-300">Email</Label>
                 <div className="relative">
@@ -99,16 +124,7 @@ export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPagePr
               </div>
 
               <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="password" className="text-slate-700 dark:text-slate-300">Password</Label>
-                  <button 
-                    type="button" 
-                    onClick={() => alert('Password reset link has been sent to your email!')} 
-                    className="text-sm text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 cursor-pointer"
-                  >
-                    Forgot password?
-                  </button>
-                </div>
+                <Label htmlFor="password" className="text-slate-700 dark:text-slate-300">Password</Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
                   <Input
@@ -120,6 +136,7 @@ export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPagePr
                     className="pl-10 pr-10 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white"
                     required
                     disabled={isLoading}
+                    minLength={6}
                   />
                   <button
                     type="button"
@@ -128,6 +145,31 @@ export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPagePr
                     tabIndex={-1}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="confirmPassword" className="text-slate-700 dark:text-slate-300">Confirm Password</Label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
+                  <Input
+                    id="confirmPassword"
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="••••••••"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="pl-10 pr-10 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white"
+                    required
+                    disabled={isLoading}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute right-3 top-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                    tabIndex={-1}
+                  >
+                    {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
               </div>
@@ -150,10 +192,10 @@ export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPagePr
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Signing in...
+                    Creating account...
                   </>
                 ) : (
-                  "Sign In"
+                  "Create Account"
                 )}
               </Button>
             </form>
@@ -175,8 +217,9 @@ export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPagePr
               <Button 
                 variant="outline" 
                 className="border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-900 dark:text-slate-200"
-                onClick={() => handleSocialLogin('Google')}
+                onClick={() => handleSocialSignup('Google')}
                 disabled={isLoading}
+                type="button"
               >
                 {isLoading ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -190,8 +233,9 @@ export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPagePr
               <Button 
                 variant="outline" 
                 className="border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-900 dark:text-slate-200"
-                onClick={() => handleSocialLogin('GitHub')}
+                onClick={() => handleSocialSignup('GitHub')}
                 disabled={isLoading}
+                type="button"
               >
                 {isLoading ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -205,13 +249,13 @@ export function LoginPage({ onBack, onLoginSuccess, onSignupClick }: LoginPagePr
             </div>
 
             <p className="text-sm text-slate-600 dark:text-slate-400 text-center">
-              Don't have an account?{" "}
+              Already have an account?{" "}
               <button 
                 type="button"
-                onClick={onSignupClick}
+                onClick={onBack}
                 className="font-semibold text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300"
               >
-                Sign up
+                Sign in
               </button>
             </p>
           </CardFooter>

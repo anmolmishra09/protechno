@@ -1,8 +1,9 @@
 import { User, LogOut } from "lucide-react";
 import { Button } from "./ui/button";
+import logo from "../assets/logo.png";
 
 interface NavbarProps {
-  onNavigate: (page: 'home' | 'privacy' | 'terms' | 'contact' | 'careers' | 'apply' | 'login') => void;
+  onNavigate: (page: 'home' | 'privacy' | 'terms' | 'contact' | 'careers' | 'apply' | 'login' | 'articles') => void;
   isLoggedIn: boolean;
   onLogout?: () => void;
 }
@@ -14,16 +15,20 @@ export function Navbar({ onNavigate, isLoggedIn, onLogout }: NavbarProps) {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div
-            className="text-xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 dark:from-orange-400 dark:to-amber-400 bg-clip-text text-transparent cursor-pointer hover:from-yellow-600 hover:to-orange-600 transition-all"
+            className="cursor-pointer flex items-center hover:opacity-80 transition-opacity"
             onClick={() => onNavigate('home')}
           >
-            Pro Technology
+            <img 
+              src={logo} 
+              alt="Pro Technology" 
+              className="h-14 w-auto mix-blend-multiply dark:mix-blend-screen dark:invert"
+            />
           </div>
 
           {/* Navigation Links */}
           <div className="flex items-center space-x-6">
             <div className="hidden md:flex space-x-6">
-              {['Privacy', 'Terms', 'Contact', 'Careers'].map((item) => (
+              {['Articles', 'Privacy', 'Terms', 'Contact', 'Careers'].map((item) => (
                 <button
                   key={item}
                   onClick={() => onNavigate(item.toLowerCase() as any)}

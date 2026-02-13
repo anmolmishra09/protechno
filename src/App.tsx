@@ -11,10 +11,12 @@ import { ContactPage } from "./components/ContactPage";
 import { CareersPage } from "./components/CareersPage";
 import { ApplicationFormPage } from "./components/ApplicationFormPage";
 import { LoginPage } from "./components/LoginPage";
+import { SignupPage } from "./components/SignupPage";
+import { ArticlesPage } from "./components/ArticlesPage";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Navbar } from "./components/Navbar";
 
-type PageType = 'home' | 'privacy' | 'terms' | 'contact' | 'careers' | 'apply' | 'login';
+type PageType = 'home' | 'privacy' | 'terms' | 'contact' | 'careers' | 'apply' | 'login' | 'signup' | 'articles';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
@@ -82,6 +84,17 @@ export default function App() {
     );
   }
 
+  if (currentPage === 'articles') {
+    return (
+      <ThemeProvider defaultTheme="dark" storageKey="pro-technology-ui-theme">
+        <Navbar onNavigate={handleNavigate} isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+        <div className="pt-20">
+          <ArticlesPage onBack={handleBack} />
+        </div>
+      </ThemeProvider>
+    );
+  }
+
   if (currentPage === 'careers') {
     return (
       <ThemeProvider defaultTheme="dark" storageKey="pro-technology-ui-theme">
@@ -107,7 +120,15 @@ export default function App() {
   if (currentPage === 'login') {
     return (
       <ThemeProvider defaultTheme="dark" storageKey="pro-technology-ui-theme">
-        <LoginPage onBack={handleBack} onLoginSuccess={handleLoginSuccess} />
+        <LoginPage onBack={handleBack} onLoginSuccess={handleLoginSuccess} onSignupClick={() => handleNavigate('signup')} />
+      </ThemeProvider>
+    );
+  }
+
+  if (currentPage === 'signup') {
+    return (
+      <ThemeProvider defaultTheme="dark" storageKey="pro-technology-ui-theme">
+        <SignupPage onBack={() => handleNavigate('login')} onSignupSuccess={handleLoginSuccess} />
       </ThemeProvider>
     );
   }
