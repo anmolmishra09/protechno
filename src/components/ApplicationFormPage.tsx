@@ -39,7 +39,7 @@ export function ApplicationFormPage({ jobTitle, onBack }: { jobTitle: string; on
           </div>
           <h2 className="text-3xl font-bold text-slate-900 mb-4">Application Received!</h2>
           <p className="text-slate-600 mb-8">
-            Thank you for applying for the <span className="font-semibold text-purple-700">{jobTitle}</span> position. Our team will review your application and get back to you soon.
+            Thank you for applying for the <span className="font-semibold text-teal-700 dark:text-teal-400">{jobTitle}</span> position. Our team will review your application and get back to you soon.
           </p>
           <Button onClick={onBack} className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-6 rounded-xl">
             Back to Careers
@@ -62,7 +62,7 @@ export function ApplicationFormPage({ jobTitle, onBack }: { jobTitle: string; on
         </Button>
 
         <div className="mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 rounded-full text-sm font-medium mb-4">
             <Briefcase className="w-4 h-4" />
             {jobTitle}
           </div>
@@ -137,7 +137,7 @@ export function ApplicationFormPage({ jobTitle, onBack }: { jobTitle: string; on
                 accept=".pdf,.doc,.docx"
                 onChange={handleFileChange}
                 required
-                className="bg-white border-slate-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100"
+                className="bg-white border-slate-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 dark:file:bg-teal-900/30 file:text-teal-700 dark:file:text-teal-400 hover:file:bg-teal-100 dark:hover:file:bg-teal-900/50"
               />
               {fileName && (
                 <div className="mt-2 flex items-center gap-2 text-sm text-slate-600">
@@ -161,7 +161,7 @@ export function ApplicationFormPage({ jobTitle, onBack }: { jobTitle: string; on
             />
           </div>
 
-          <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-6 rounded-xl shadow-md hover:shadow-lg transition-all font-semibold text-lg">
+          <Button type="submit" className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white py-6 rounded-xl shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-500/40 transition-all font-semibold text-lg">
             Submit Application
           </Button>
         </form>

@@ -52,13 +52,13 @@ export function CustomCursor() {
     <>
       {/* Outer Ring - Smooth follow with spring physics */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-purple-600 rounded-full pointer-events-none z-[9999] hidden md:block mix-blend-normal"
+        className="fixed top-0 left-0 w-8 h-8 border-2 border-teal-600 rounded-full pointer-events-none z-[9999] hidden md:block mix-blend-normal"
         animate={{
           x: mousePosition.x - 16,
           y: mousePosition.y - 16,
           scale: isClicked ? 0.8 : isHovering ? 2.5 : 1,
-          backgroundColor: isHovering ? "rgba(147, 51, 234, 0.1)" : "transparent",
-          borderColor: isHovering ? "#9333ea" : "#9333ea",
+          backgroundColor: isHovering ? "rgba(20, 184, 166, 0.1)" : "transparent",
+          borderColor: isHovering ? "#0d9488" : "#0d9488",
         }}
         transition={{
           type: "spring",
@@ -70,7 +70,7 @@ export function CustomCursor() {
 
       {/* Inner Dot - Immediate follow */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-purple-600 rounded-full pointer-events-none z-[9999] hidden md:block"
+        className="fixed top-0 left-0 w-2 h-2 bg-teal-600 rounded-full pointer-events-none z-[9999] hidden md:block"
         animate={{
           x: mousePosition.x - 4,
           y: mousePosition.y - 4,

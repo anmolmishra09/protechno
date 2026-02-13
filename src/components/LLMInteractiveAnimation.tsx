@@ -82,7 +82,7 @@ export function LLMInteractiveAnimation() {
                 y1={mousePos.y}
                 x2={token.x}
                 y2={token.y}
-                stroke="rgba(168, 85, 247, 0.4)" // Purple-500 with opacity
+                stroke="rgba(20, 184, 166, 0.4)" // Teal-500 with opacity
                 strokeWidth="1.5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity }}
@@ -112,7 +112,7 @@ export function LLMInteractiveAnimation() {
               dominantBaseline="middle"
               className="font-medium select-none cursor-default"
               style={{
-                fill: isActive ? '#9333ea' : '#94a3b8', // Purple-600 or Slate-400
+                fill: isActive ? '#0d9488' : '#94a3b8', // Teal-600 or Slate-400
                 fontSize: '14px',
                 fontFamily: 'system-ui, sans-serif',
               }}

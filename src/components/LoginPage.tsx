@@ -48,9 +48,9 @@ export function LoginPage({ onBack, onLoginSuccess }: LoginPageProps) {
     <div className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-950 relative overflow-hidden px-4">
       {/* Background Decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-purple-100/50 dark:bg-purple-900/20 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-[-5%] right-[-10%] w-[450px] h-[450px] bg-blue-100/40 dark:bg-blue-900/20 rounded-full blur-[110px] animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-[40%] left-[30%] w-[300px] h-[300px] bg-indigo-100/30 dark:bg-indigo-900/20 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-teal-100/50 dark:bg-teal-900/20 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[-5%] right-[-10%] w-[450px] h-[450px] bg-cyan-100/40 dark:bg-cyan-900/20 rounded-full blur-[110px] animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-[40%] left-[30%] w-[300px] h-[300px] bg-emerald-100/30 dark:bg-emerald-900/20 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "2s" }} />
       </div>
 
       {/* Back Button */}
@@ -100,7 +100,7 @@ export function LoginPage({ onBack, onLoginSuccess }: LoginPageProps) {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password" className="text-slate-700 dark:text-slate-300">Password</Label>
-                  <a href="#" className="text-sm text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300">
+                  <a href="#" className="text-sm text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300">
                     Forgot password?
                   </a>
                 </div>
@@ -139,7 +139,7 @@ export function LoginPage({ onBack, onLoginSuccess }: LoginPageProps) {
 
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-md hover:shadow-lg transition-all"
+                className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-500/40 transition-all"
                 disabled={isLoading}
               >
                 {isLoading ? (
@@ -201,7 +201,7 @@ export function LoginPage({ onBack, onLoginSuccess }: LoginPageProps) {
 
             <p className="text-sm text-slate-600 dark:text-slate-400 text-center">
               Don't have an account?{" "}
-              <a href="#" className="font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300">
+              <a href="#" className="font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300">
                 Sign up
               </a>
             </p>

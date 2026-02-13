@@ -22,9 +22,9 @@ const values = [
 
 export function AboutSection() {
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-b from-white to-cyan-50 dark:from-slate-950 dark:to-indigo-950 overflow-hidden">
       {/* Subtle background decoration */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-purple-50 rounded-full blur-[100px] opacity-50 pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-teal-100/50 dark:bg-teal-900/20 rounded-full blur-[100px] opacity-50 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -35,22 +35,22 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-              Building the <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Intelligence Layer</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
+              Building the <span className="bg-gradient-to-r from-teal-600 to-cyan-600 dark:from-teal-400 dark:to-cyan-400 bg-clip-text text-transparent">Intelligence Layer</span>
             </h2>
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+            <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
               At Pro Technology, we believe AI should augment human potential, not replace it. Founded by a team of researchers and engineers passionate about the future of work, we're building tools that help teams move faster and think bigger.
             </p>
 
             <div className="space-y-6">
               {values.map((value, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
-                    <value.icon className="w-6 h-6 text-purple-600" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center">
+                    <value.icon className="w-6 h-6 text-teal-600 dark:text-teal-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-1">{value.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{value.description}</p>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">{value.title}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{value.description}</p>
                   </div>
                 </div>
               ))}
@@ -77,20 +77,20 @@ export function AboutSection() {
               <div className="flex items-center gap-3 mb-3">
                 <div className="flex -space-x-2">
                   <Avatar className="w-8 h-8 border-2 border-white">
-                    <AvatarFallback className="bg-purple-100 text-purple-600 text-xs">JD</AvatarFallback>
+                    <AvatarFallback className="bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 text-xs">JD</AvatarFallback>
                   </Avatar>
                   <Avatar className="w-8 h-8 border-2 border-white">
-                    <AvatarFallback className="bg-blue-100 text-blue-600 text-xs">AS</AvatarFallback>
+                    <AvatarFallback className="bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 text-xs">AS</AvatarFallback>
                   </Avatar>
                   <Avatar className="w-8 h-8 border-2 border-white">
-                    <AvatarFallback className="bg-pink-100 text-pink-600 text-xs">MK</AvatarFallback>
+                    <AvatarFallback className="bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs">MK</AvatarFallback>
                   </Avatar>
                 </div>
                 <div className="text-xs font-medium text-slate-500">+50 Experts</div>
               </div>
-              <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+              <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                 <motion.div 
-                  className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: "85%" }}
                   viewport={{ once: true }}
@@ -132,7 +132,7 @@ export function AboutSection() {
             </motion.div>
 
             {/* Decorative Elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-br from-purple-200 to-blue-200 rounded-full blur-3xl opacity-40" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-br from-teal-200 to-cyan-200 dark:from-teal-900/40 dark:to-cyan-900/40 rounded-full blur-3xl opacity-40" />
           </motion.div>
         </div>
       </div>

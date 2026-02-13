@@ -7,14 +7,14 @@ const chartData = [45, 60, 55, 75, 65, 90];
 
 export function CTABanner() {
   return (
-    <section className="relative z-10 px-4 pb-24 pt-12 bg-white">
+    <section className="relative z-10 px-4 pb-24 pt-12 bg-gradient-to-b from-orange-50 to-white dark:from-indigo-950 dark:to-slate-950">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative bg-gradient-to-br from-purple-600 via-purple-700 to-blue-700 rounded-3xl p-8 md:p-12 overflow-hidden shadow-2xl shadow-purple-200"
+          className="relative bg-gradient-to-br from-orange-600 via-amber-700 to-yellow-700 dark:from-orange-700 dark:via-amber-800 dark:to-yellow-900 rounded-3xl p-8 md:p-12 overflow-hidden shadow-2xl shadow-orange-300/30 dark:shadow-orange-900/50"
         >
           {/* Decorative background elements */}
           <motion.div
@@ -45,7 +45,7 @@ export function CTABanner() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="text-lg text-purple-100 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+                className="text-lg text-orange-50 dark:text-amber-100 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed"
               >
                 Join thousands of companies using Pro Technology to automate workflows and gain predictive insights. Start your free trial today.
               </motion.p>
@@ -85,7 +85,7 @@ export function CTABanner() {
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6 border-b border-white/20 pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-400 to-blue-400 flex items-center justify-center text-white shadow-lg">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-400 to-cyan-400 flex items-center justify-center text-white shadow-lg">
                       <BarChart3 className="w-6 h-6" />
                     </div>
                     <div>
@@ -106,7 +106,7 @@ export function CTABanner() {
                 <div className="space-y-5 mb-6">
                   <div className="flex justify-between items-end">
                     <div>
-                      <div className="text-xs text-purple-100 mb-1">Efficiency</div>
+                      <div className="text-xs text-cyan-100 dark:text-cyan-200 mb-1">Efficiency</div>
                       <div className="flex items-baseline gap-2">
                         <div className="text-2xl font-bold text-white">98.4%</div>
                         <motion.div 
@@ -151,7 +151,7 @@ export function CTABanner() {
                         <div 
                           className={`absolute bottom-0 w-full rounded-t-sm transition-colors duration-300 ${
                             index === chartData.length - 1 
-                              ? 'bg-gradient-to-t from-purple-500 to-blue-400 shadow-[0_0_15px_rgba(168,85,247,0.5)]' 
+                              ? 'bg-gradient-to-t from-teal-500 to-cyan-400 shadow-[0_0_15px_rgba(20,184,166,0.5)]' 
                               : 'bg-white/20 group-hover:bg-white/30'
                           }`}
                           style={{ height: '100%' }}
@@ -168,12 +168,12 @@ export function CTABanner() {
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-4 -right-4 bg-white text-purple-700 rounded-xl p-3 shadow-lg border border-purple-100 flex items-center gap-3"
+                  className="absolute -bottom-4 -right-4 bg-white text-teal-700 dark:text-teal-800 rounded-xl p-3 shadow-lg border border-teal-100 dark:border-teal-200 flex items-center gap-3"
                 >
                   <div className="relative">
-                    <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-20"></div>
-                    <div className="bg-green-100 p-1.5 rounded-full relative">
-                      <TrendingUp className="w-3.5 h-3.5 text-green-600" />
+                    <div className="absolute inset-0 bg-teal-400 rounded-full animate-ping opacity-20"></div>
+                    <div className="bg-teal-100 dark:bg-teal-200 p-1.5 rounded-full relative">
+                      <TrendingUp className="w-3.5 h-3.5 text-teal-600" />
                     </div>
                   </div>
                   <div>

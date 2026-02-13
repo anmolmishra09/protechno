@@ -15,7 +15,7 @@ export function ContactPage({ onBack }: { onBack: () => void }) {
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 py-12">
+    <div className="min-h-screen bg-white dark:bg-slate-950 px-4 py-12">
       <div className="max-w-4xl mx-auto">
         <Button 
           variant="ghost" 
@@ -29,63 +29,63 @@ export function ContactPage({ onBack }: { onBack: () => void }) {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left Column: Info */}
           <div>
-            <h1 className="text-4xl font-bold text-slate-900 mb-6 tracking-tight">
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
               Get in Touch
             </h1>
-            <p className="text-slate-600 mb-10 leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
               Have questions about our AI solutions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
             </p>
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-purple-100 rounded-lg">
-                  <Mail className="w-5 h-5 text-purple-600" />
+                <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
+                  <Mail className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900">Email</h3>
-                  <p className="text-slate-600">hello@protechnology.com</p>
+                  <h3 className="font-semibold text-slate-900 dark:text-white">Email</h3>
+                  <p className="text-slate-600 dark:text-slate-400">anmolmishra86229@gmail.com</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-blue-100 rounded-lg">
-                  <Phone className="w-5 h-5 text-blue-600" />
+                <div className="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
+                  <Phone className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900">Phone</h3>
-                  <p className="text-slate-600">+91 (878) 722-2966</p>
+                  <h3 className="font-semibold text-slate-900 dark:text-white">Phone</h3>
+                  <p className="text-slate-600 dark:text-slate-400">+91 (878) 722-2966</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-pink-100 rounded-lg">
-                  <MapPin className="w-5 h-5 text-pink-600" />
+                <div className="p-3 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg">
+                  <MapPin className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900">Office</h3>
-                  <p className="text-slate-600">123 Innovation Area<br/>Sonbhadra, U.P. 231216</p>
+                  <h3 className="font-semibold text-slate-900 dark:text-white">Office</h3>
+                  <p className="text-slate-600 dark:text-slate-400">123 Innovation Area<br/>Sonbhadra, U.P. 231216</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Column: Form */}
-          <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+          <div className="bg-slate-50 dark:bg-indigo-900/30 rounded-3xl p-8 border border-slate-100 dark:border-indigo-800">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-slate-700">Name</Label>
+                <Label htmlFor="name" className="text-slate-700 dark:text-slate-300">Name</Label>
                 <Input 
                   id="name" 
                   placeholder="Your name" 
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   required
-                  className="bg-white border-slate-200"
+                  className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 dark:text-white"
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-slate-700">Email</Label>
+                <Label htmlFor="email" className="text-slate-700 dark:text-slate-300">Email</Label>
                 <Input 
                   id="email" 
                   type="email" 
@@ -93,12 +93,12 @@ export function ContactPage({ onBack }: { onBack: () => void }) {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   required
-                  className="bg-white border-slate-200"
+                  className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 dark:text-white"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-slate-700">Message</Label>
+                <Label htmlFor="message" className="text-slate-700 dark:text-slate-300">Message</Label>
                 <Textarea 
                   id="message" 
                   placeholder="How can we help you?" 
@@ -106,11 +106,14 @@ export function ContactPage({ onBack }: { onBack: () => void }) {
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   required
-                  className="bg-white border-slate-200 resize-none"
+                  className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 resize-none dark:text-white"
                 />
               </div>
 
-              <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+              <Button 
+                type="submit" 
+                className="w-full bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white py-6 rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all cursor-pointer"
+              >
                 <Send className="w-4 h-4 mr-2" />
                 Send Message
               </Button>

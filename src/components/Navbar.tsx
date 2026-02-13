@@ -9,12 +9,12 @@ interface NavbarProps {
 
 export function Navbar({ onNavigate, isLoggedIn, onLogout }: NavbarProps) {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-orange-200 dark:border-indigo-800 bg-white/90 dark:bg-indigo-950/90 backdrop-blur-md shadow-lg shadow-orange-100/50 dark:shadow-indigo-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div
-            className="text-xl font-bold text-slate-900 dark:text-white cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            className="text-xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 dark:from-orange-400 dark:to-amber-400 bg-clip-text text-transparent cursor-pointer hover:from-yellow-600 hover:to-orange-600 transition-all"
             onClick={() => onNavigate('home')}
           >
             Pro Technology
@@ -27,7 +27,7 @@ export function Navbar({ onNavigate, isLoggedIn, onLogout }: NavbarProps) {
                 <button
                   key={item}
                   onClick={() => onNavigate(item.toLowerCase() as any)}
-                  className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                  className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-amber-400 transition-colors"
                 >
                   {item}
                 </button>
@@ -38,8 +38,8 @@ export function Navbar({ onNavigate, isLoggedIn, onLogout }: NavbarProps) {
             {isLoggedIn ? (
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2 text-sm font-medium text-slate-900 dark:text-white">
-                  <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
-                    <User className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-100 to-amber-100 dark:from-orange-900/50 dark:to-amber-900/50 flex items-center justify-center">
+                    <User className="w-4 h-4 text-orange-600 dark:text-orange-400" />
                   </div>
                   <span className="hidden sm:inline">Account</span>
                 </div>
@@ -59,7 +59,7 @@ export function Navbar({ onNavigate, isLoggedIn, onLogout }: NavbarProps) {
             ) : (
               <Button 
                 onClick={() => onNavigate('login')}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-md hover:shadow-lg transition-all"
+                className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all"
               >
                 Login
               </Button>

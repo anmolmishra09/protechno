@@ -62,7 +62,7 @@ export function Dashboard({ user, applications, onLogout }: DashboardProps) {
               <CardTitle className="text-sm font-medium text-slate-600 dark:text-slate-400">
                 Total Applications
               </CardTitle>
-              <FileText className="h-4 w-4 text-purple-600" />
+              <FileText className="h-4 w-4 text-teal-600 dark:text-teal-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{applications.length}</div>
@@ -121,8 +121,8 @@ export function Dashboard({ user, applications, onLogout }: DashboardProps) {
                     className="flex items-center justify-between p-4 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                        <FileText className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                      <div className="p-2 bg-teal-100 dark:bg-teal-900/30 rounded-lg">
+                        <FileText className="h-5 w-5 text-teal-600 dark:text-teal-400" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-slate-900 dark:text-white">{app.jobTitle}</h4>

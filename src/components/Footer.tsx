@@ -2,7 +2,7 @@ import { Mail, Linkedin, Twitter, Github } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-slate-950 mt-24">
+    <footer className="w-full border-t border-orange-200 dark:border-indigo-800 bg-gradient-to-b from-white to-orange-50 dark:from-slate-950 dark:to-indigo-950 mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
@@ -34,20 +34,20 @@ export function Footer() {
             <div className="space-y-3">
               <a 
                 href="mailto:hello@protechnology.ai" 
-                className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                className="flex items-center space-x-2 text-sm text-slate-700 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 <span>hello@protechnology.ai</span>
               </a>
               
               <div className="flex space-x-4 pt-2">
-                <a href="https://www.linkedin.com/in/anmolmishra09/" className="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/anmolmishra09/" className="text-slate-400 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <a href="#" className="text-slate-400 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   <Twitter className="w-5 h-5" />
                 </a>
-                <a href="https://github.com/anmolmishra09" className="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <a href="https://github.com/anmolmishra09" className="text-slate-400 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
               </div>

@@ -114,7 +114,7 @@ export default function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="pro-technology-ui-theme">
-      <main className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
+      <main className="min-h-screen bg-white dark:bg-slate-950">
         <Navbar onNavigate={handleNavigate} isLoggedIn={isLoggedIn} onLogout={handleLogout} />
         
         <div className="pt-20">

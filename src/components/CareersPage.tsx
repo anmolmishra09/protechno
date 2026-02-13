@@ -209,7 +209,7 @@ export function CareersPage({ onBack, onApply }: CareersPageProps) {
           {jobs.map((job) => (
             <div key={job.id} className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col">
               <div className="mb-4">
-                <span className="inline-block px-3 py-1 text-xs font-semibold text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30 rounded-full mb-3">
+                <span className="inline-block px-3 py-1 text-xs font-semibold text-teal-600 dark:text-teal-400 bg-teal-100 dark:bg-teal-900/30 rounded-full mb-3">
                   {job.department}
                 </span>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">{job.title}</h3>
@@ -240,7 +240,7 @@ export function CareersPage({ onBack, onApply }: CareersPageProps) {
 
               <Button 
                 onClick={() => onApply(job.title)}
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                className="w-full bg-teal-600 hover:bg-teal-700 text-white"
               >
                 Apply Now
               </Button>
