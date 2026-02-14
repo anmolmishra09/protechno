@@ -15,12 +15,12 @@ export function ContactPage({ onBack }: { onBack: () => void }) {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 px-4 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-slate-950 dark:via-slate-900 dark:to-orange-950/30 px-4 py-12">
       <div className="max-w-4xl mx-auto">
         <Button 
           variant="ghost" 
           onClick={onBack}
-          className="mb-8 text-slate-600 hover:text-slate-900 hover:bg-slate-50 -ml-4"
+          className="mb-8 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-800/50 -ml-4"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Home
@@ -70,7 +70,7 @@ export function ContactPage({ onBack }: { onBack: () => void }) {
           </div>
 
           {/* Right Column: Form */}
-          <div className="bg-slate-50 dark:bg-indigo-900/30 rounded-3xl p-8 border border-slate-100 dark:border-indigo-800">
+          <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-orange-200 dark:border-slate-700 shadow-xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-slate-700 dark:text-slate-300">Name</Label>

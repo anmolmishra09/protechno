@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { HeroSection } from "./components/HeroSection";
+import { ProcessSteps } from "./components/ProcessSteps";
 import { FeatureCards } from "./components/FeatureCards";
+import { TemplatesShowcase } from "./components/TemplatesShowcase";
 import { StatsSection } from "./components/StatsSection";
+import { Testimonials } from "./components/Testimonials";
 import { AIAgents } from "./components/AIAgents";
+import { FAQ } from "./components/FAQ";
 import { CTABanner } from "./components/CTABanner";
 import { Footer } from "./components/Footer";
 import { PrivacyPage } from "./components/PrivacyPage";
@@ -13,10 +17,14 @@ import { ApplicationFormPage } from "./components/ApplicationFormPage";
 import { LoginPage } from "./components/LoginPage";
 import { SignupPage } from "./components/SignupPage";
 import { ArticlesPage } from "./components/ArticlesPage";
+import { VisionMissionPage } from "./components/VisionMissionPage";
+import { ChatbotPage } from "./components/ChatbotPage";
+import { FloatingChatWidget } from "./components/FloatingChatWidget";
+import { TrustBanner } from "./components/TrustBanner";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Navbar } from "./components/Navbar";
 
-type PageType = 'home' | 'privacy' | 'terms' | 'contact' | 'careers' | 'apply' | 'login' | 'signup' | 'articles';
+type PageType = 'home' | 'privacy' | 'terms' | 'contact' | 'careers' | 'apply' | 'login' | 'signup' | 'articles' | 'vision' | 'chatbot';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
@@ -95,6 +103,25 @@ export default function App() {
     );
   }
 
+  if (currentPage === 'vision') {
+    return (
+      <ThemeProvider defaultTheme="dark" storageKey="pro-technology-ui-theme">
+        <Navbar onNavigate={handleNavigate} isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+        <div className="pt-20">
+          <VisionMissionPage onBack={handleBack} />
+        </div>
+      </ThemeProvider>
+    );
+  }
+
+  if (currentPage === 'chatbot') {
+    return (
+      <ThemeProvider defaultTheme="dark" storageKey="pro-technology-ui-theme">
+        <ChatbotPage onBack={handleBack} />
+      </ThemeProvider>
+    );
+  }
+
   if (currentPage === 'careers') {
     return (
       <ThemeProvider defaultTheme="dark" storageKey="pro-technology-ui-theme">
@@ -140,12 +167,20 @@ export default function App() {
         
         <div className="pt-20">
           <HeroSection />
+          <TrustBanner />
+          <ProcessSteps />
           <FeatureCards />
+          <TemplatesShowcase onNavigate={handleNavigate} />
           <StatsSection />
+          <Testimonials onNavigate={handleNavigate} />
           <AIAgents />
-          <CTABanner />
+          <FAQ onNavigate={handleNavigate} />
+          <CTABanner onNavigate={handleNavigate} />
           <Footer />
         </div>
+
+        {/* Floating Chat Widget */}
+        <FloatingChatWidget onOpenFullChat={() => handleNavigate('chatbot')} />
       </main>
     </ThemeProvider>
   );

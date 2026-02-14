@@ -2,10 +2,26 @@ import { Button } from "./ui/button";
 import { ArrowRight, BarChart3, Zap, TrendingUp, Activity } from "lucide-react";
 import { motion } from "framer-motion";
 
+interface CTABannerProps {
+  onNavigate?: (page: 'signup' | 'contact') => void;
+}
+
 // Simulated data points for the chart
 const chartData = [45, 60, 55, 75, 65, 90];
 
-export function CTABanner() {
+export function CTABanner({ onNavigate }: CTABannerProps) {
+  const handleGetStarted = () => {
+    if (onNavigate) {
+      onNavigate('signup');
+    }
+  };
+
+  const handleContactSales = () => {
+    if (onNavigate) {
+      onNavigate('contact');
+    }
+  };
+
   return (
     <section className="relative z-10 px-4 pb-24 pt-12 bg-gradient-to-b from-orange-50 to-white dark:from-indigo-950 dark:to-slate-950">
       <div className="max-w-6xl mx-auto">
@@ -58,6 +74,7 @@ export function CTABanner() {
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
               >
                   <Button 
+                  onClick={handleGetStarted}
                   variant="ghost" 
                   className="border border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:text-white rounded-full px-8 py-6 text-lg font-medium transition-all duration-300 w-full sm:w-auto"
                 >
@@ -65,6 +82,7 @@ export function CTABanner() {
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button 
+                  onClick={handleContactSales}
                   variant="ghost" 
                   className="border border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:text-white rounded-full px-8 py-6 text-lg font-medium transition-all duration-300 w-full sm:w-auto"
                 >

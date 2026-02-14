@@ -2,90 +2,11 @@ import { ArrowLeft, Calendar, Clock, Tag, TrendingUp, Brain, Code, Database, Spa
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { useState } from "react";
 
-const articles = [
-  {
-    id: 1,
-    title: "The Future of AI-Powered Automation",
-    excerpt: "Discover how artificial intelligence is revolutionizing business automation and workflow optimization across industries.",
-    category: "AI Technology",
-    date: "Feb 10, 2026",
-    readTime: "5 min read",
-    icon: Brain,
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Building Scalable Machine Learning Systems",
-    excerpt: "Learn best practices for designing and deploying ML systems that can handle millions of requests with high availability.",
-    category: "Engineering",
-    date: "Feb 8, 2026",
-    readTime: "8 min read",
-    icon: Database,
-    featured: true
-  },
-  {
-    id: 3,
-    title: "Natural Language Processing in 2026",
-    excerpt: "Explore the latest advancements in NLP and how they're transforming customer interactions and content generation.",
-    category: "AI Research",
-    date: "Feb 5, 2026",
-    readTime: "6 min read",
-    icon: Sparkles,
-    featured: false
-  },
-  {
-    id: 4,
-    title: "Optimizing AI Model Performance",
-    excerpt: "Practical tips and techniques for improving your AI model's accuracy, speed, and resource efficiency.",
-    category: "Best Practices",
-    date: "Feb 3, 2026",
-    readTime: "7 min read",
-    icon: TrendingUp,
-    featured: false
-  },
-  {
-    id: 5,
-    title: "AI Ethics and Responsible Development",
-    excerpt: "Understanding the importance of ethical AI development and implementing responsible practices in your projects.",
-    category: "AI Ethics",
-    date: "Jan 30, 2026",
-    readTime: "10 min read",
-    icon: Brain,
-    featured: false
-  },
-  {
-    id: 6,
-    title: "Integrating AI APIs into Your Applications",
-    excerpt: "Step-by-step guide to seamlessly integrate powerful AI capabilities into your existing software solutions.",
-    category: "Development",
-    date: "Jan 28, 2026",
-    readTime: "12 min read",
-    icon: Code,
-    featured: false
-  },
-  {
-    id: 7,
-    title: "Deep Learning for Computer Vision Applications",
-    excerpt: "Comprehensive guide to implementing state-of-the-art computer vision models for image recognition and object detection.",
-    category: "AI Technology",
-    date: "Feb 13, 2026",
-    readTime: "9 min read",
-    icon: Brain,
-    featured: false
-  },
-  {
-    id: 8,
-    title: "Cloud Infrastructure for AI Workloads",
-    excerpt: "Best practices for setting up robust cloud infrastructure to support demanding AI and machine learning workloads at scale.",
-    category: "Engineering",
-    date: "Feb 12, 2026",
-    readTime: "11 min read",
-    icon: Database,
-    featured: false
-  }
-];
+import { useState } from "react";
+import { mockArticles, Article } from "../utils/mockBackend";
+
+const articles: Article[] = mockArticles;
 
 const categories = ["All", "AI Technology", "Engineering", "AI Research", "Best Practices", "AI Ethics", "Development"];
 
@@ -150,9 +71,7 @@ export function ArticlesPage({ onBack }: { onBack: () => void }) {
               >
                 <CardHeader>
                   <div className="flex items-start justify-between mb-3">
-                    <div className="p-3 bg-gradient-to-br from-orange-100 to-amber-100 dark:from-orange-900/50 dark:to-amber-900/50 rounded-xl">
-                      <article.icon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                    </div>
+                    <img src={article.image} alt={article.title} className="w-24 h-24 object-cover rounded-xl shadow-md border border-orange-100 dark:border-orange-900/30" />
                     <Badge className="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-0">
                       {article.category}
                     </Badge>
@@ -160,9 +79,12 @@ export function ArticlesPage({ onBack }: { onBack: () => void }) {
                   <CardTitle className="text-2xl text-slate-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                     {article.title}
                   </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-400 text-base">
+                  <CardDescription className="text-slate-600 dark:text-slate-400 text-base mb-2">
                     {article.excerpt}
                   </CardDescription>
+                  <div className="text-slate-700 dark:text-slate-300 text-sm mb-2">
+                    {article.details}
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-500">
@@ -194,9 +116,7 @@ export function ArticlesPage({ onBack }: { onBack: () => void }) {
               >
                 <CardHeader>
                   <div className="flex items-center justify-between mb-3">
-                    <div className="p-2 bg-gradient-to-br from-orange-100 to-amber-100 dark:from-orange-900/50 dark:to-amber-900/50 rounded-lg">
-                      <article.icon className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                    </div>
+                    <img src={article.image} alt={article.title} className="w-16 h-16 object-cover rounded-lg shadow border border-orange-100 dark:border-orange-900/30" />
                     <Badge variant="outline" className="text-xs border-orange-300 dark:border-orange-800 text-orange-700 dark:text-orange-300">
                       {article.category}
                     </Badge>
@@ -204,9 +124,12 @@ export function ArticlesPage({ onBack }: { onBack: () => void }) {
                   <CardTitle className="text-xl text-slate-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                     {article.title}
                   </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-400">
+                  <CardDescription className="text-slate-600 dark:text-slate-400 mb-1">
                     {article.excerpt}
                   </CardDescription>
+                  <div className="text-slate-700 dark:text-slate-300 text-xs mb-1">
+                    {article.details}
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-500">

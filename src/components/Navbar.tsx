@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import logo from "../assets/logo.png";
 
 interface NavbarProps {
-  onNavigate: (page: 'home' | 'privacy' | 'terms' | 'contact' | 'careers' | 'apply' | 'login' | 'articles') => void;
+  onNavigate: (page: 'home' | 'privacy' | 'terms' | 'contact' | 'careers' | 'apply' | 'login' | 'articles' | 'vision' | 'chatbot') => void;
   isLoggedIn: boolean;
   onLogout?: () => void;
 }
@@ -28,13 +28,20 @@ export function Navbar({ onNavigate, isLoggedIn, onLogout }: NavbarProps) {
           {/* Navigation Links */}
           <div className="flex items-center space-x-6">
             <div className="hidden md:flex space-x-6">
-              {['Articles', 'Privacy', 'Terms', 'Contact', 'Careers'].map((item) => (
+              {[
+                { label: 'Vision & Mission', route: 'vision' },
+                { label: 'Articles', route: 'articles' },
+                { label: 'Privacy', route: 'privacy' },
+                { label: 'Terms', route: 'terms' },
+                { label: 'Contact', route: 'contact' },
+                { label: 'Careers', route: 'careers' }
+              ].map((item) => (
                 <button
-                  key={item}
-                  onClick={() => onNavigate(item.toLowerCase() as any)}
+                  key={item.route}
+                  onClick={() => onNavigate(item.route as any)}
                   className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-amber-400 transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </button>
               ))}
             </div>
